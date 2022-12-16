@@ -30,12 +30,12 @@
         {
             this.AddButton = new System.Windows.Forms.Button();
             this.GradeBox = new System.Windows.Forms.TextBox();
-            this.GroupIdBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.ChooseList = new System.Windows.Forms.ListBox();
             this.NameBox = new System.Windows.Forms.TextBox();
+            this.GroupIdBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // AddButton
@@ -54,13 +54,6 @@
             this.GradeBox.Name = "GradeBox";
             this.GradeBox.Size = new System.Drawing.Size(210, 23);
             this.GradeBox.TabIndex = 6;
-            // 
-            // GroupIdBox
-            // 
-            this.GroupIdBox.Location = new System.Drawing.Point(82, 41);
-            this.GroupIdBox.Name = "GroupIdBox";
-            this.GroupIdBox.Size = new System.Drawing.Size(210, 23);
-            this.GroupIdBox.TabIndex = 7;
             // 
             // label3
             // 
@@ -105,16 +98,24 @@
             this.NameBox.Size = new System.Drawing.Size(210, 23);
             this.NameBox.TabIndex = 7;
             // 
+            // GroupIdBox
+            // 
+            this.GroupIdBox.FormattingEnabled = true;
+            this.GroupIdBox.Location = new System.Drawing.Point(82, 41);
+            this.GroupIdBox.Name = "GroupIdBox";
+            this.GroupIdBox.Size = new System.Drawing.Size(210, 23);
+            this.GroupIdBox.TabIndex = 11;
+            // 
             // Update
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(304, 379);
+            this.Controls.Add(this.GroupIdBox);
             this.Controls.Add(this.ChooseList);
             this.Controls.Add(this.AddButton);
             this.Controls.Add(this.GradeBox);
             this.Controls.Add(this.NameBox);
-            this.Controls.Add(this.GroupIdBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -129,11 +130,11 @@
 
         private Button AddButton;
         private TextBox GradeBox;
-        private TextBox GroupIdBox;
         private Label label3;
         private Label label2;
         private Label label1;
         private ListBox ChooseList;
         private TextBox NameBox;
+        private ComboBox GroupIdBox;
     }
 }

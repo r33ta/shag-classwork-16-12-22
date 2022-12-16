@@ -1,6 +1,27 @@
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Drawing;
+
+/*
+Задание: 
+
+Написать приложение Windows Forms с несколькими формами:
+1. Первая форма содержит три кнопки для перехода к остальным формам и список со студентами из таблицы Students.
+2. Вторая форма содержит необходимые элементы для добавления студента в таблицу Students
+3. Третья форма содержит необходимые элементы для удаления студента из таблицы Students
+4. Четвертая форма содержит необходимые элементы для обновления студента в таблице Students
+
+Получить студентов из таблицы
+SELECT * FROM Students
+
+Вставить студента в таблицу
+INSERT INTO Students(name, groupId, grade) VALUES('Иван', 2, 3)
+
+Удалить студента из таблицы
+DELETE FROM Students WHERE id = 2
+
+Обновить студента в таблице
+UPDATE Students SET name = 'Петр', groupId = 2, grade = 2 WHERE id = 5
+ */
+
 
 namespace SqlExample;
 
@@ -21,6 +42,16 @@ public partial class Form1 : Form
         public override string ToString()
         {
             return "Имя: " + name + ", оценка: " + grade;
+        }
+    }
+    public class Group
+    {
+        public int id;
+        public string name;
+
+        public override string ToString()
+        {
+            return name;
         }
     }
 

@@ -23,6 +23,8 @@ public partial class Insert : Form
 
         con = new SqlConnection(conStr);
         con.Open();
+
+        GetGroupsList();
     }
     ~Insert()
     {
@@ -34,7 +36,7 @@ public partial class Insert : Form
         SqlCommand command = new(CmdInsert, con);
 
         SqlParameter nameParam = new("@name", NameBox.Text);
-        SqlParameter groupIdParam = new("@groupId", GroupIdBox.Text);
+        SqlParameter groupIdParam = new("@groupId", ((Group)GroupIdBox.SelectedItem).id);
         SqlParameter gradeParam = new("@grade", GradeBox.Text);
 
         command.Parameters.Add(nameParam);
@@ -69,6 +71,29 @@ public partial class Insert : Form
                     };
 
                     list.Items.Add(student);
+                }
+            }
+        }
+    }
+
+    private void GetGroupsList()
+    {
+        GroupIdBox.Items.Clear();
+
+        SqlCommand command = new("Select * FROM Groups", con);
+        using (SqlDataReader reader = command.ExecuteReader())
+        {
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    Group group = new Group
+                    {
+                        id = reader.GetInt32(0),
+                        name = reader.GetString(1).Trim()
+                    };
+
+                    GroupIdBox.Items.Add(group);
                 }
             }
         }
